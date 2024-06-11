@@ -52,10 +52,10 @@ async function handleSubmit() {
 
     <!-- 特殊按钮 -->
     <div class="mb-4 flex flex-col items-center gap-1">
-      <var-button text size="mini" tabindex="-1" class="w-min text-xs text-primary" @click="() => $router.push({ name: 'register' })">
+      <var-button text size="mini" tabindex="-1" class="text-blue-500 w-min text-xs" @click="() => $router.push({ name: 'register' })">
         还没有账号？点此注册
       </var-button>
-      <var-button text size="mini" tabindex="-1" class="w-min text-xs text-danger" @click="() => $router.push({ name: 'forgetPassword' })">
+      <var-button text size="mini" tabindex="-1" class="text-red-500 w-min text-xs" @click="() => $router.push({ name: 'forgetPassword' })">
         忘记密码
       </var-button>
     </div>

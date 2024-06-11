@@ -146,7 +146,7 @@ async function sendVerificationCode() {
 
     <!-- 特殊按钮 -->
     <div class="mb-4 flex flex-col items-center gap-1">
-      <var-button text size="mini" tabindex="-1" class="w-min text-xs text-primary" @click="() => $router.push({ name: 'login' })">
+      <var-button text size="mini" tabindex="-1" class="text-blue-500 w-min text-xs" @click="() => $router.push({ name: 'login' })">
         已经有账号了？点此登录
       </var-button>
     </div>

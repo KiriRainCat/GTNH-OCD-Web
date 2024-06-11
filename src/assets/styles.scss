@@ -17,7 +17,8 @@ body {
   font-family: "LXGW WenKai GB Screen", sans-serif;
   margin: 0;
 
-  @apply bg-body text-text;
+  background-color: var(--color-body);
+  color: var(--color-text);
 }
 
 // #region:    --- 滚动条样式
