@@ -6,14 +6,18 @@
 :root {
   --tooltip-font-size: 12px;
   --tooltip-padding: 4px 8px;
+
   --snackbar-width: 360px;
   --snackbar-font-size: 13px;
+
   --opacity-focus: 0;
 }
 
 body {
   font-family: "LXGW WenKai GB Screen", sans-serif;
   margin: 0;
+
+  @apply bg-body text-text;
 }
 
 // #region:    --- 滚动条样式

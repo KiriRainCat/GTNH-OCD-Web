@@ -66,7 +66,7 @@ async function sendVerificationCode() {
 <template>
   <div class="mx-10 flex flex-col justify-center">
     <div class="font-bold">欢迎使用 GTNH OCD</div>
-    <div class="text-sm opacity-55">请注册您的账号</div>
+    <div class="opacity-55 text-sm">请注册您的账号</div>
 
     <!-- 表单主体 -->
     <var-style-provider
@@ -146,7 +146,7 @@ async function sendVerificationCode() {
 
     <!-- 特殊按钮 -->
     <div class="mb-4 flex flex-col items-center gap-1">
-      <var-button text size="mini" tabindex="-1" class="w-min text-xs text-blue-500" @click="() => $router.push({ name: 'login' })">
+      <var-button text size="mini" tabindex="-1" class="w-min text-xs text-primary" @click="() => $router.push({ name: 'login' })">
         已经有账号了？点此登录
       </var-button>
     </div>

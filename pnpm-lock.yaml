@@ -25,6 +25,12 @@ dependencies:
     version: 4.3.2(vue@3.4.27)
 
 devDependencies:
+  '@iconify/json':
+    specifier: ^2.2.217
+    version: 2.2.217
+  '@iconify/vue':
+    specifier: ^4.1.2
+    version: 4.1.2(vue@3.4.27)
   '@rushstack/eslint-patch':
     specifier: ^1.8.0
     version: 1.10.3
@@ -34,6 +40,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.14.2
     version: 20.14.2
+  '@varlet/preset-tailwindcss':
+    specifier: ^3.2.14
+    version: 3.2.14(tailwindcss@3.4.4)
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
     version: 5.0.5(vite@5.2.12)(vue@3.4.27)
@@ -375,6 +384,26 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.3:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+    dev: true
+
+  /@iconify/json@2.2.217:
+    resolution: {integrity: sha512-+sSR9iKsoThUmgG4wA9xdtyazROIqMOo5h5otOXYRyOQjMNJCpJltq5hEhHInC5aG/DUQmXDiN/YsCoJdCYUbQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.2
+    dev: true
+
+  /@iconify/types@2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: true
+
+  /@iconify/vue@4.1.2(vue@3.4.27):
+    resolution: {integrity: sha512-CQnYqLiQD5LOAaXhBrmj1mdL2/NCJvwcC4jtW2Z8ukhThiFkLDkutarTOV2trfc9EXqUqRs0KqXOL9pZ/IyysA==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.4.27(typescript@5.4.5)
     dev: true
 
   /@isaacs/cliui@8.0.2:
@@ -744,6 +773,14 @@ packages:
   /@varlet/icons@3.2.13:
     resolution: {integrity: sha512-479tXO+YoLIuhV5AcQC+BcURkzxRB2+uQTUYQaj811HvmUWbrAJgIaUmV9dm1iNYCBlZtkYW/eQecJ8/eodcwQ==}
     dev: false
+
+  /@varlet/preset-tailwindcss@3.2.14(tailwindcss@3.4.4):
+    resolution: {integrity: sha512-9MziidJY26XaWcGaghjQqfDZqQrkBjdAsuekklWcleRURMlDDAf49Q7J27CW8u2KtQJ9ZlCb2fS8NIQqkhGZRA==}
+    peerDependencies:
+      tailwindcss: ^3.4.1
+    dependencies:
+      tailwindcss: 3.4.4
+    dev: true
 
   /@varlet/shared@3.2.13:
     resolution: {integrity: sha512-RaQP3USw5Z36Ic29zzZvlPq8ObsmQWlOy0Dds2MNjUv4vdZwYXaA3ja6IpMRtMrwjUiZJu0O/S+u9FqoTBQmvg==}
@@ -1979,6 +2016,10 @@ packages:
   /path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+    dev: true
+
+  /pathe@1.1.2:
+    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
     dev: true
 
   /picocolors@1.0.1:

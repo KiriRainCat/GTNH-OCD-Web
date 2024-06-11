@@ -1,17 +1,32 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onBeforeMount } from "vue";
 import { RouterView } from "vue-router";
 import { useService } from "./pkg/stores/service";
+import { StyleProvider, Themes } from "@varlet/ui";
+import { useDataStore } from "./pkg/stores/data";
+import NavBar from "./components/NavBar.vue";
 
-onMounted(useService().initServices);
+onBeforeMount(() => {
+  // 界面主题
+  if (useDataStore().isDarkTheme) {
+    StyleProvider(Themes.dark);
+  } else {
+    StyleProvider(null);
+  }
+
+  // 初始化服务
+  useService().initServices();
+});
 </script>
 
 <template>
-  <main>
-    <router-view v-slot="{ Component }" class="h-screen bg-slate-50">
+  <div class="flex h-screen flex-col justify-center">
+    <NavBar />
+
+    <router-view v-slot="{ Component }" class="h-full">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
-  </main>
+  </div>
 </template>

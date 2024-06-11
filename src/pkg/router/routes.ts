@@ -9,7 +9,7 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/auth",
-    component: () => import("@/views/auth/AuthView.vue"),
+    component: () => import("@/views/auth/AuthLayout.vue"),
     children: [
       { path: "login", name: "login", component: () => import("@/views/auth/components/LoginForm.vue") },
       { path: "register", name: "register", component: () => import("@/views/auth/components/RegisterForm.vue") },

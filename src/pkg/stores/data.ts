@@ -6,6 +6,9 @@ import { useService } from "./service";
 import { User } from "../services/api_types";
 
 export const useDataStore = defineStore("data", () => {
+const isDarkTheme = ref(localStorage.getItem(Keys.IS_DARK_THEME) === "true");
+
+  //* -------------------------------- 用户数据相关 -------------------------------- *//
   const user = ref<User>();
   const token = ref(localStorage.getItem(Keys.TOKEN) ?? "");
   function updateToken(newToken: string) {
@@ -18,7 +21,8 @@ export const useDataStore = defineStore("data", () => {
     refreshUserData();
   }
 
+  //* -------------------------------- OC 数据相关 ------------------------------- *//
   const AEData = ref<Array<any>>([]);
 
-  return { user, token, updateToken, AEData };
+  return { isDarkTheme, user, token, updateToken, AEData };
 });
