@@ -9,8 +9,8 @@
       <div class="mt-2 text-sm">一款用于查看，监控，与获取 GTNH OpenComputers 事件通知的开源工具</div>
 
       <!-- 登录注册按钮 -->
-      <var-button type="primary" @click="() => $router.push('/auth/login')" class="mt-4">登录</var-button>
-      <var-button type="info" @click="() => $router.push('/auth/register')" class="mt-2">注册</var-button>
+      <var-button v-btn type="primary" @click="() => $router.push('/auth/login')" class="mt-4">登录</var-button>
+      <var-button v-btn type="info" @click="() => $router.push('/auth/register')" class="mt-2">注册</var-button>
     </var-paper>
   </div>
 </template>

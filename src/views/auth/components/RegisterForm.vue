@@ -66,7 +66,7 @@ async function sendVerificationCode() {
 <template>
   <div class="mx-10 flex flex-col justify-center">
     <div class="font-bold">欢迎使用 GTNH OCD</div>
-    <div class="opacity-55 text-sm">请注册您的账号</div>
+    <div class="text-sm opacity-55">请注册您的账号</div>
 
     <!-- 表单主体 -->
     <var-style-provider
@@ -118,7 +118,7 @@ async function sendVerificationCode() {
             v-model="form.verificationCode"
             class="mt-2"
           ></var-input>
-          <var-button type="info" :disabled="coolDown > 0" @click="sendVerificationCode" class="mt-1.5 h-10 min-w-14 max-w-14">
+          <var-button v-btn type="info" :disabled="coolDown > 0" @click="sendVerificationCode" class="mt-1.5 h-10 min-w-14 max-w-14">
             {{ coolDown > 0 ? `${coolDown}s` : "发送" }}
           </var-button>
         </div>
@@ -146,13 +146,19 @@ async function sendVerificationCode() {
 
     <!-- 特殊按钮 -->
     <div class="mb-4 flex flex-col items-center gap-1">
-      <var-button text size="mini" tabindex="-1" class="text-blue-500 w-min text-xs" @click="() => $router.push({ name: 'login' })">
+      <var-button v-btn text size="mini" tabindex="-1" class="w-min text-xs text-blue-500" @click="() => $router.push({ name: 'login' })">
         已经有账号了？点此登录
       </var-button>
     </div>
 
     <!-- 提交按钮 -->
-    <var-button type="primary" :disabled="pending" @click="() => (activeStep === 2 ? handleSubmit() : handleNext())" class="h-10 w-full">
+    <var-button
+      v-btn
+      type="primary"
+      :disabled="pending"
+      @click="() => (activeStep === 2 ? handleSubmit() : handleNext())"
+      class="h-10 w-full"
+    >
       <var-loading v-if="pending" type="wave" />
       <div v-else>{{ activeStep === 2 ? "注册" : "下一步" }}</div>
     </var-button>

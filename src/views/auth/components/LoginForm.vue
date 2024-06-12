@@ -27,7 +27,7 @@ async function handleSubmit() {
 <template>
   <var-form ref="formRef" class="mx-10 flex flex-col justify-center">
     <div class="font-bold">欢迎回到 GTNH OCD</div>
-    <div class="opacity-55 text-sm">请登录您的账号</div>
+    <div class="text-sm opacity-55">请登录您的账号</div>
 
     <!-- 表单主体 -->
     <var-style-provider
@@ -52,16 +52,30 @@ async function handleSubmit() {
 
     <!-- 特殊按钮 -->
     <div class="mb-4 flex flex-col items-center gap-1">
-      <var-button text size="mini" tabindex="-1" class="text-blue-500 w-min text-xs" @click="() => $router.push({ name: 'register' })">
+      <var-button
+        v-btn
+        text
+        size="mini"
+        tabindex="-1"
+        class="w-min text-xs text-blue-500"
+        @click="() => $router.push({ name: 'register' })"
+      >
         还没有账号？点此注册
       </var-button>
-      <var-button text size="mini" tabindex="-1" class="text-red-500 w-min text-xs" @click="() => $router.push({ name: 'forgetPassword' })">
+      <var-button
+        v-btn
+        text
+        size="mini"
+        tabindex="-1"
+        class="w-min text-xs text-red-500"
+        @click="() => $router.push({ name: 'forgetPassword' })"
+      >
         忘记密码
       </var-button>
     </div>
 
     <!-- 提交按钮 -->
-    <var-button type="primary" :disabled="pending" @click="handleSubmit" class="h-10 w-full">
+    <var-button v-btn type="primary" :disabled="pending" @click="handleSubmit" class="h-10 w-full">
       <var-loading v-if="pending" type="wave" />
       <div v-else>登录</div>
     </var-button>
