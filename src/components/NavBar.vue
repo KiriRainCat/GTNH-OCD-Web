@@ -29,18 +29,35 @@ function logout() {
 
 <template>
   <var-app-bar fixed elevation="2" title-position="center">
-    <template #left><var-button text class="ml-1 font-bold" @click="() => $router.push('/')">GTNH OCD</var-button></template>
+    <template #left><var-button v-btn text class="ml-1 font-bold" @click="() => $router.push('/')">GTNH OCD</var-button></template>
 
     <template #right>
-      <var-button text @click="switchTheme" class="mx-1 w-10">
+      <var-select
+        v-if="isLoggedIn"
+        placeholder="暂无团队"
+        blur-color="var(--color-on-primary)"
+        text-color="var(--color-on-primary)"
+        focus-color="var(--color-on-primary)"
+        :hint="false"
+        class="mr-2 w-40"
+      ></var-select>
+      <var-button v-btn v-if="isLoggedIn" text class="w-10">
+        <Icon icon="mdi:account-multiple" class="h-6 w-6" />
+      </var-button>
+      <var-button v-btn text @click="switchTheme" class="mx-1 w-10">
         <Icon :icon="store.isDarkTheme ? 'ph:sun' : 'ph:moon'" class="h-6 w-6" />
+      </var-button>
+      <var-button v-btn v-if="isLoggedIn" text @click="logout" class="mr-1 w-10">
+        <Icon icon="mdi:logout-variant" class="h-5 w-5" :class="store.isDarkTheme ? 'text-red-500' : 'text-orange-500'" />
       </var-button>
     </template>
 
     <template v-if="isLoggedIn" #default>
-      <var-button text class="mx-1 w-10" @click="() => $router.push({ name: 'dashboard' })">
+      <var-button v-btn text @click="() => $router.push({ name: 'ae' })">AE 合成</var-button>
+      <var-button v-btn text class="mx-1 w-10" @click="() => $router.push({ name: 'dashboard' })">
         <Icon icon="mdi:home" class="h-8 w-8" />
       </var-button>
+      <var-button v-btn text @click="() => $router.push({ name: 'miner' })">矿机状态</var-button>
     </template>
   </var-app-bar>
 </template>

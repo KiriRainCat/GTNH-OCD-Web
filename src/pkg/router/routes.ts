@@ -18,7 +18,10 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/dash",
-    name: "dashboard",
-    component: () => import("@/views/dash/DashView.vue"),
+    children: [
+      { path: "", name: "dashboard", component: () => import("@/views/dash/DashView.vue") },
+      { path: "ae", name: "ae", component: () => import("@/views/dash/AEView.vue") },
+      { path: "miner", name: "miner", component: () => import("@/views/dash/MinerView.vue") },
+    ],
   },
 ];
