@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { Keys } from "../constants/keys";
 import api from "../services/api";
 import { useService } from "./service";
-import { User } from "../services/api_types";
+import { Team, User } from "../services/api_types";
 
 export const useDataStore = defineStore("data", () => {
 const isDarkTheme = ref(localStorage.getItem(Keys.IS_DARK_THEME) === "true");
@@ -21,8 +21,12 @@ const isDarkTheme = ref(localStorage.getItem(Keys.IS_DARK_THEME) === "true");
     refreshUserData();
   }
 
+  //* -------------------------------- 团队数据相关 -------------------------------- *//
+  const teams = ref<Team[]>();
+  const selectedTeamId = ref<string>();
+
   //* -------------------------------- OC 数据相关 ------------------------------- *//
   const AEData = ref<Array<any>>([]);
 
-  return { isDarkTheme, user, token, updateToken, AEData };
+  return { isDarkTheme, user, token, updateToken, teams, selectedTeamId, AEData };
 });

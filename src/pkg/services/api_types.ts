@@ -14,7 +14,17 @@ class User {
 class Team {
   id!: string;
   name!: string;
+
+  owner_id!: number;
+  owner?: User;
+
+  data_token!: string;
+}
+
+/** 团队详情 API 数据模型 */
+class TeamDetail {
+  team!: Team;
   members?: User[];
 }
 
-export { User, Team };
+export { User, Team, TeamDetail };

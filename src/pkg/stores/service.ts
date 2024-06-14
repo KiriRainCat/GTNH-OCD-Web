@@ -20,9 +20,12 @@ export const useService = defineStore("service", () => {
       store.user = JSON.parse(localStorage.getItem(Keys.USER)!);
     } catch (_) {}
 
-    // 从服务器获取用户信息
+    // 从服务器获取用户信息 & 团队信息
     API.getUser()
-      .then((user) => (store.user = user))
+      .then((user) => {
+        store.user = user;
+        API.refreshTeams().catch(() => {});
+      })
       .catch(() => {});
   }
 

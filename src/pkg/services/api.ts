@@ -2,7 +2,7 @@ import axios from "axios";
 import { Snackbar } from "@varlet/ui";
 import { useDataStore } from "../stores/data";
 import router from "../router";
-import type { User } from "./api_types";
+import type { TeamDetail, User } from "./api_types";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -77,6 +77,37 @@ class API {
   // 获取用户信息
   public static async getUser(): Promise<User> {
     return (await api.get("/user")).data["data"];
+  }
+
+  // 获取只包含用户名和 ID 的全用户列表
+  public static async getAllUsers(): Promise<User[]> {
+    return (await api.get("/user/all")).data["data"];
+  }
+
+  // 获取团队详情
+  public static async getTeamDetail(teamId?: string): Promise<TeamDetail | undefined> {
+    if (teamId == undefined) return undefined;
+    return (await api.get(`/team/${teamId}`)).data["data"];
+  }
+
+  // 获取对应用户可查看的团队列表
+  public static async refreshTeams() {
+    useDataStore().teams = (await api.get("/team/list")).data["data"];
+  }
+
+  // 创建团队
+  public static async createTeam(name: string) {
+    await api.post(`/team/${name}`);
+  }
+
+  // 加入团队
+  public static async joinTeam(joinToken: string) {
+    await api.post(`/team/member/join/${joinToken}/${useDataStore().user?.id}`);
+  }
+
+  // 获取入团秘钥
+  public static async generateTeamJoinCode(teamId: string) {
+    return (await api.get(`/team/join-token/${teamId}`)).data["data"];
   }
 }
 

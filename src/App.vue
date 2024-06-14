@@ -23,7 +23,7 @@ onBeforeMount(() => {
   <div class="flex h-screen flex-col justify-center">
     <NavBar />
 
-    <router-view v-slot="{ Component }" class="h-full">
+    <router-view v-slot="{ Component }" class="flex-1">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>

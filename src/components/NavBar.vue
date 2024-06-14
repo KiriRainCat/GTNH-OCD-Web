@@ -5,6 +5,7 @@ import { useDataStore } from "@/pkg/stores/data";
 import { Icon } from "@iconify/vue";
 import { StyleProvider, Themes } from "@varlet/ui";
 import { computed } from "vue";
+import { API } from "@/pkg/services/api";
 
 const store = useDataStore();
 const isLoggedIn = computed(() => store.token.length > 0);
@@ -39,9 +40,14 @@ function logout() {
         text-color="var(--color-on-primary)"
         focus-color="var(--color-on-primary)"
         :hint="false"
+        v-model="store.selectedTeamId"
+        @click="() => API.refreshTeams().catch(() => {})"
         class="mr-2 w-40"
-      ></var-select>
-      <var-button v-btn v-if="isLoggedIn" text class="w-10">
+      >
+        <var-option v-for="team in store.teams" :key="team.id" :label="team.name" :value="team.id" />
+      </var-select>
+
+      <var-button v-btn v-if="isLoggedIn" text @click="() => $router.push({ name: 'team' })" class="w-10">
         <Icon icon="mdi:account-multiple" class="h-6 w-6" />
       </var-button>
       <var-button v-btn text @click="switchTheme" class="mx-1 w-10">
